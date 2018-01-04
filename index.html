@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+    <title>圣诞礼物交换趴</title>
+    <style>
+    </style>
+    <script>
+      // 先判断有没有openid
+      function getUrlParam(name) {
+        var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)");
+        var r = window.location.search.substr(1).match(reg);
+        if (r != null) return unescape(r[2]);
+        return null;
+      }
+      var openid = getUrlParam("openid");
+      if (openid === null) {
+        // window.location.href = "http://new.acmedynasty.com/login?returnurl=" + window.location.href; //获取自己的openid 地址可以从store里取
+        window.location.href = "http://new.acmedynasty.com/login?returnurl=http://test.mymanna.me/christmas/";
+        // window.location.href ="http://new.acmedynasty.com/login?returnurl=http://" +window.location.host+window.location.pathname;
+      }
+    </script>
+    <script src="http://res.wx.qq.com/open/js/jweixin-1.2.0.js"></script>
+    <script>
+      (function (doc, win) {
+      var docEl = doc.documentElement,
+      resizeEvt = 'orientationchange' in window ? 'orientationchange' : 'resize',
+      recalc = function () {
+      var clientWidth = docEl.clientWidth;
+      if (!clientWidth) return;
+      docEl.style.fontSize = 100 * (clientWidth / 750) + 'px';
+      };
+
+
+      if (!doc.addEventListener) return;
+      win.addEventListener(resizeEvt, recalc, false);
+      doc.addEventListener('DOMContentLoaded', recalc, false);
+      })(document, window);
+      </script>
+      <script src="http://cdn.staticfile.org/EaselJS/0.8.0/easeljs.min.js"></script>
+      <script src="http://cdn.staticfile.org/SoundJS/0.6.0/soundjs.min.js"></script>
+  </head>
+  <body>
+    <div id="app"></div>
+    <!-- built files will be auto injected -->
+  </body>
+</html>
